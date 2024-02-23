@@ -12,13 +12,13 @@ var majorityElement = function(nums) {
       }
     }
     let maxCount = 0;
-    let maxCountKey = null;
-    for (const [key, value] of countMap.entries()) {
-        if (value > maxCount) {
-            maxCount = value;
-            maxCountKey = key;
-        }
+    let iterator = countMap.entries();
+    while(iterator.next !== undefined){
+      iterator = iterator.next();
+      if(maxCount < iterator.value){
+        maxCount = iterator.value
+      }
     }
-    return maxCount
+    return maxCount;
 };
 console.log(majorityElement([3,2,3]))
